@@ -27,9 +27,11 @@ let btnStart = document.getElementById('start'),
     month = document.querySelector('.month-value'),
     day = document.querySelector('.day-value');
 
+let firstStart = [btnAdoptAlways, btnAdoptOptionally, btnAdoptCompute];
 
-
-
+for (let btn of firstStart) {
+    btn.disable = true;
+};
 
 
 
@@ -47,15 +49,7 @@ btnStart.addEventListener('click', function () {
     month.value = new Date(Date.parse(time)).getMonth() + 1;
     day.value = new Date(Date.parse(time)).getDate();
 
-    // if (appData.timeData = undefined) {
-    //     btnAdoptAlways.disabled = false;
-    //     btnAdoptOptionally.disabled = false;
-    //     btnAdoptCompute .disabled = false; 
-    // } else if (appData.timeData != undefined) {
-    //     btnAdoptAlways.disabled = true;
-    //     btnAdoptOptionally.disabled = true;
-    //     btnAdoptCompute .disabled = true; 
-    // };
+
 });
 
 
@@ -125,55 +119,55 @@ btnAdoptCompute.addEventListener('click', function () {
 
 
 
-income.addEventListener('input', function() {
+income.addEventListener('input', function () {
     let items = income.value;
     // if (typeof (items) === 'string' && typeof (items) != null && items != '');
-        appData.income = items.split(', ');
-        incomeResult.textContent = appData.income;
+    appData.income = items.split(', ');
+    incomeResult.textContent = appData.income;
 });
 
 
 
 
 
-savings.addEventListener('click', function() {
-if (appData.saving == false) {
-appData.saving = true;
-} else if (appData.saving == true) {
-    appData.saving = false;
-};
+savings.addEventListener('click', function () {
+    if (appData.saving == false) {
+        appData.saving = true;
+    } else if (appData.saving == true) {
+        appData.saving = false;
+    };
 });
 
 
 
 
 
-summ.addEventListener('input', function() {
-if (appData.saving == true) {
-    let sum = +summ.value,
-    perc = +percent.value;
-
-    appData.monthIncome = sum / 100 / 12 * perc;
-    appData.yearIncome = sum / 100 * perc;
-
-    monthsavingsResult.textContent = appData.monthIncome.toFixed(1);
-    yearsavingsResult.textContent = appData.yearIncome.toFixed(1);
-}
-});
-
-
-
-
-percent.addEventListener('input', function(){
+summ.addEventListener('input', function () {
     if (appData.saving == true) {
         let sum = +summ.value,
-        perc = +percent.value;
-    
+            perc = +percent.value;
+
         appData.monthIncome = sum / 100 / 12 * perc;
         appData.yearIncome = sum / 100 * perc;
-    
+
         monthsavingsResult.textContent = appData.monthIncome.toFixed(1);
-        yearsavingsResult.textContent = appData.yearIncome.toFixed(1); 
+        yearsavingsResult.textContent = appData.yearIncome.toFixed(1);
+    }
+});
+
+
+
+
+percent.addEventListener('input', function () {
+    if (appData.saving == true) {
+        let sum = +summ.value,
+            perc = +percent.value;
+
+        appData.monthIncome = sum / 100 / 12 * perc;
+        appData.yearIncome = sum / 100 * perc;
+
+        monthsavingsResult.textContent = appData.monthIncome.toFixed(1);
+        yearsavingsResult.textContent = appData.yearIncome.toFixed(1);
     }
 
 });
@@ -218,13 +212,13 @@ let appData = {
 
     // },
     // chooseIncome: function () {
-       
-            // appData.income.push(prompt('Может что-то ещё?', ''));
-            // appData.income.sort();
-            // appData.income.forEach(function (item, i) {
-            //     alert('Способы доп. заработка: ' + (i + 1) + ': ' + item);
-            // };
-            
-// },
+
+    // appData.income.push(prompt('Может что-то ещё?', ''));
+    // appData.income.sort();
+    // appData.income.forEach(function (item, i) {
+    //     alert('Способы доп. заработка: ' + (i + 1) + ': ' + item);
+    // };
+
+    // },
 
 };
