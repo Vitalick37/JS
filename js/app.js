@@ -29,8 +29,9 @@ let btnStart = document.getElementById('start'),
 
 let firstStart = [btnAdoptAlways, btnAdoptOptionally, btnAdoptCompute];
 
-for (let btn of firstStart) {
-    btn.disable = true;
+
+for (let item of firstStart) {
+    item.disabled = true;
 };
 
 
@@ -49,7 +50,9 @@ btnStart.addEventListener('click', function () {
     month.value = new Date(Date.parse(time)).getMonth() + 1;
     day.value = new Date(Date.parse(time)).getDate();
 
-
+    for (let item of firstStart) {
+        item.disabled = false;
+    };
 });
 
 
