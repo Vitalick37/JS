@@ -99,11 +99,11 @@ window.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = 'hidden';
     });
 
-    description.forEach(function(item) {
-        item.addEventListener('click', function() {
+    description.forEach(function (item) {
+        item.addEventListener('click', function () {
             overlay.style.display = 'block';
             more.classList.add('more-splash');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
         });
     });
 
@@ -113,4 +113,25 @@ window.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
     });
 
+
+    // Тест Класса
+
+    class Options {
+        constructor(height, width, bg, fontSize, textAlign) {
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
+            this.textAlign = textAlign;
+        }
+        newDiv() {
+            let divOne = document.createElement('div');
+            divOne.innerHTML = 'Hello World'
+            document.body.appendChild(divOne);
+            divOne.style.cssText = 'height: 200px; width: 200px; background-color: grey; font-size: 24px; text-align: center;'
+        }
+    }
+
+    const options = new Options();
+    options.newDiv();
 });
