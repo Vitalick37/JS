@@ -1,5 +1,3 @@
-
-
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
@@ -117,7 +115,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // Тест Класса
 
     class Options {
-        constructor(height, width, bg, fontSize, textAlign) {
+        constructor(height = 200, width = 200, bg = 'grey', fontSize = 24, textAlign = 'center') {
             this.height = height;
             this.width = width;
             this.bg = bg;
@@ -128,10 +126,16 @@ window.addEventListener('DOMContentLoaded', function () {
             let divOne = document.createElement('div');
             divOne.innerHTML = 'Hello World'
             document.body.appendChild(divOne);
-            divOne.style.cssText = 'height: 200px; width: 200px; background-color: grey; font-size: 24px; text-align: center;'
+            divOne.style.cssText = `height: ${this.height}px; 
+            width: ${this.width}px; 
+            background-color: ${this.bg}; 
+            font-size: ${this.fontSize}px; 
+            text-align: ${this.textAlign};`
+return divOne;
         }
     }
 
     const options = new Options();
     options.newDiv();
+    
 });
