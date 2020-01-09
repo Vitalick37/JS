@@ -114,28 +114,57 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Тест Класса
 
-    class Options {
-        constructor(height = 200, width = 200, bg = 'grey', fontSize = 24, textAlign = 'center') {
-            this.height = height;
-            this.width = width;
-            this.bg = bg;
-            this.fontSize = fontSize;
-            this.textAlign = textAlign;
-        }
-        newDiv() {
-            let divOne = document.createElement('div');
-            divOne.innerHTML = 'Hello World'
-            document.body.appendChild(divOne);
-            divOne.style.cssText = `height: ${this.height}px; 
-            width: ${this.width}px; 
-            background-color: ${this.bg}; 
-            font-size: ${this.fontSize}px; 
-            text-align: ${this.textAlign};`
-return divOne;
-        }
-    }
+    //     class Options {
+    //         constructor(height = 200, width = 200, bg = 'grey', fontSize = 24, textAlign = 'center') {
+    //             this.height = height;
+    //             this.width = width;
+    //             this.bg = bg;
+    //             this.fontSize = fontSize;
+    //             this.textAlign = textAlign;
+    //         }
+    //         newDiv() {
+    //             let divOne = document.createElement('div');
+    //             divOne.innerHTML = 'Hello World'
+    //             document.body.appendChild(divOne);
+    //             divOne.style.cssText = `height: ${this.height}px; 
+    //             width: ${this.width}px; 
+    //             background-color: ${this.bg}; 
+    //             font-size: ${this.fontSize}px; 
+    //             text-align: ${this.textAlign};`
+    // return divOne;
+    //         }
+    //     }
 
-    const options = new Options();
-    options.newDiv();
-    
+    //     const options = new Options();
+    //     options.newDiv();
+
+
+
+    // Form
+
+
+    let message = {
+        loading: 'Загрузка...',
+        success: 'Спасибо! Скоро мы с вами свяжемся',
+        failure: 'Что-то пошло не так...'
+    };
+
+    let form = document.querySelector('.main-form'),
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
+
+    statusMessage.classList.add('status');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+
+        let request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        request.setRequestHeader('Contont-Type', 'application/x-www-form-urlencoded');
+
+        let formData = new FormData(form);
+        request.send(formData);
+    });
+
 });
