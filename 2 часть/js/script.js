@@ -168,4 +168,13 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
 
+//   Слайдер
+
+let sliderIndex = 1,
+slides = document.querySelectorAll('.slider-item'),
+prev = document.querySelector('.prev'),
+next = document.querySelector('.next'),
+dotsWrap = document.querySelector('.slider-dots'),
+dot = document.querySelectorAll('.dot');
+
 });
