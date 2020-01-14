@@ -197,6 +197,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function plusSlides(n) {
         showSlides(sliderIndex += n);
     };
+
     function currentSlides(n) {
         showSlides(sliderIndex = n);
     };
@@ -217,8 +218,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Calc
 
-    let persons = document.querySelectorAll('counter-block-input')[0],
-        restDays = document.querySelectorAll('counter-block-input')[1],
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
         place = document.getElementById('select'),
         totalValue = document.getElementById('total'),
         personSum = 0,
@@ -238,7 +239,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    restDays.addEventListener('change', function () {
+    restDays.addEventListener('change', function() {
         daysSum = +this.value;
         total = (personSum + daysSum) * 3000;
 
@@ -249,12 +250,15 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    place.addEventListener('change', function() {
-if (restDays.value == '' || persons.value == '') {
-    totalValue.innerHTML = 0;
-} else {
-    let a = total;
-    totalValue.innerHTML = a * this.options[this.selectedIndex].value;
-}
+    place.addEventListener('change', function () {
+        if (restDays.value == '' || persons.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            let a = total;
+            totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+        }
     });
+
+
+
 });
