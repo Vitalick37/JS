@@ -232,7 +232,7 @@ window.addEventListener('DOMContentLoaded', function () {
         personSum = +this.value;
         total = (personSum + daysSum) * 3000;
 
-        if (restDays.value == '') {
+        if (restDays.value == '' || persons.value == '') {
             totalValue.innerHTML = 0;
         } else {
             totalValue.innerHTML = total;
@@ -243,7 +243,7 @@ window.addEventListener('DOMContentLoaded', function () {
         daysSum = +this.value;
         total = (personSum + daysSum) * 3000;
 
-        if (persons.value == '') {
+        if (persons.value == '' || restDays.value == '') {
             totalValue.innerHTML = 0;
         } else {
             totalValue.innerHTML = total;
